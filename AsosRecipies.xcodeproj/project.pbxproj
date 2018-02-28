@@ -13,6 +13,10 @@
 		E291654E20475081001930DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E291654D20475081001930DA /* Assets.xcassets */; };
 		E291655120475081001930DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E291654F20475081001930DA /* LaunchScreen.storyboard */; };
 		E291655C20475081001930DA /* AsosRecipiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291655B20475081001930DA /* AsosRecipiesTests.swift */; };
+		E29165692047556D001930DA /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29165682047556D001930DA /* Recipe.swift */; };
+		E291656B20475581001930DA /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291656A20475581001930DA /* Ingredients.swift */; };
+		E2916571204758AD001930DA /* RecipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2916570204758AD001930DA /* RecipeTests.swift */; };
+		E2916573204758F1001930DA /* IngredientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2916572204758F1001930DA /* IngredientTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		E291655720475081001930DA /* AsosRecipiesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsosRecipiesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E291655B20475081001930DA /* AsosRecipiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsosRecipiesTests.swift; sourceTree = "<group>"; };
 		E291655D20475081001930DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E29165682047556D001930DA /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		E291656A20475581001930DA /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
+		E2916570204758AD001930DA /* RecipeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTests.swift; sourceTree = "<group>"; };
+		E2916572204758F1001930DA /* IngredientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +85,7 @@
 		E291654520475081001930DA /* AsosRecipies */ = {
 			isa = PBXGroup;
 			children = (
+				E291656620475533001930DA /* Networking */,
 				E291654620475081001930DA /* AppDelegate.swift */,
 				E291654820475081001930DA /* ViewController.swift */,
 				E291654A20475081001930DA /* Main.storyboard */,
@@ -90,10 +99,45 @@
 		E291655A20475081001930DA /* AsosRecipiesTests */ = {
 			isa = PBXGroup;
 			children = (
+				E291656C2047587E001930DA /* Networking */,
 				E291655B20475081001930DA /* AsosRecipiesTests.swift */,
 				E291655D20475081001930DA /* Info.plist */,
 			);
 			path = AsosRecipiesTests;
+			sourceTree = "<group>";
+		};
+		E291656620475533001930DA /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E291656720475539001930DA /* Models */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		E291656720475539001930DA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E29165682047556D001930DA /* Recipe.swift */,
+				E291656A20475581001930DA /* Ingredients.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E291656C2047587E001930DA /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E291656D20475889001930DA /* Models */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		E291656D20475889001930DA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E2916572204758F1001930DA /* IngredientTests.swift */,
+				E2916570204758AD001930DA /* RecipeTests.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +243,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E291656B20475581001930DA /* Ingredients.swift in Sources */,
+				E29165692047556D001930DA /* Recipe.swift in Sources */,
 				E291654920475081001930DA /* ViewController.swift in Sources */,
 				E291654720475081001930DA /* AppDelegate.swift in Sources */,
 			);
@@ -208,7 +254,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2916573204758F1001930DA /* IngredientTests.swift in Sources */,
 				E291655C20475081001930DA /* AsosRecipiesTests.swift in Sources */,
+				E2916571204758AD001930DA /* RecipeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +404,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F6W8CTW858;
 				INFOPLIST_FILE = AsosRecipies/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hu.tmbr.AsosRecipies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -371,6 +420,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F6W8CTW858;
 				INFOPLIST_FILE = AsosRecipies/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hu.tmbr.AsosRecipies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
