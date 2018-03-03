@@ -1,0 +1,875 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2CECCC5EF5E3AE35E317B193 /* Pods_AsosRecipes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147D3AFB59A73A426FBB319C /* Pods_AsosRecipes.framework */; };
+		47DB56CF7BA2233B43865495 /* Pods_AsosRecipesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CFF0F4F5BE1597C62436C3 /* Pods_AsosRecipesTests.framework */; };
+		E23025E1204AFF90006408F2 /* ModelRendererCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23025E0204AFF90006408F2 /* ModelRendererCell.swift */; };
+		E23025E4204B1FFB006408F2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E23025E6204B1FFB006408F2 /* Localizable.strings */; };
+		E23025EB204B226A006408F2 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23025EA204B226A006408F2 /* StringExtensions.swift */; };
+		E23025EC204B23B6006408F2 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = E23025EE204B23B6006408F2 /* Localizable.stringsdict */; };
+		E23025F2204B4649006408F2 /* OptionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23025F1204B4649006408F2 /* OptionsPresenter.swift */; };
+		E28215A62047626E00839798 /* RecipesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28215A42047626E00839798 /* RecipesListViewController.swift */; };
+		E28215A72047626E00839798 /* RecipesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E28215A52047626E00839798 /* RecipesListViewController.xib */; };
+		E28215AA2047628700839798 /* RecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28215A82047628700839798 /* RecipeDetailsViewController.swift */; };
+		E28215AB2047628700839798 /* RecipeDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E28215A92047628700839798 /* RecipeDetailsViewController.xib */; };
+		E28215AF2047634600839798 /* ExternalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28215AE2047634600839798 /* ExternalView.swift */; };
+		E28215B42047640400839798 /* RecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28215B22047640400839798 /* RecipeCollectionViewCell.swift */; };
+		E28215B52047640400839798 /* RecipeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E28215B32047640400839798 /* RecipeCollectionViewCell.xib */; };
+		E28215B82047646800839798 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28215B62047646800839798 /* IngredientTableViewCell.swift */; };
+		E28215B92047646800839798 /* IngredientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E28215B72047646800839798 /* IngredientTableViewCell.xib */; };
+		E28215BC2047649800839798 /* StepTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28215BA2047649800839798 /* StepTableViewCell.swift */; };
+		E28215BD2047649800839798 /* StepTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E28215BB2047649800839798 /* StepTableViewCell.xib */; };
+		E291654720475081001930DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291654620475081001930DA /* AppDelegate.swift */; };
+		E291654E20475081001930DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E291654D20475081001930DA /* Assets.xcassets */; };
+		E291655120475081001930DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E291654F20475081001930DA /* LaunchScreen.storyboard */; };
+		E291655C20475081001930DA /* AsosRecipiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291655B20475081001930DA /* AsosRecipiesTests.swift */; };
+		E29165692047556D001930DA /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29165682047556D001930DA /* Recipe.swift */; };
+		E291656B20475581001930DA /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291656A20475581001930DA /* Ingredients.swift */; };
+		E2916571204758AD001930DA /* RecipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2916570204758AD001930DA /* RecipeTests.swift */; };
+		E2916573204758F1001930DA /* IngredientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2916572204758F1001930DA /* IngredientTests.swift */; };
+		E296E3F12049DC0F00B5E6EA /* RecipeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E296E3F02049DC0F00B5E6EA /* RecipeListViewModel.swift */; };
+		E2C1C402204A1677003AA78C /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C1C401204A1677003AA78C /* RecipeViewModel.swift */; };
+		E2C1C405204A1A97003AA78C /* CoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C1C403204A1A97003AA78C /* CoverTableViewCell.swift */; };
+		E2C1C406204A1A97003AA78C /* CoverTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2C1C404204A1A97003AA78C /* CoverTableViewCell.xib */; };
+		E2C1C40F204AEFF9003AA78C /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C1C40E204AEFF9003AA78C /* SectionHeaderView.swift */; };
+		E2C1C411204AF013003AA78C /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2C1C410204AF013003AA78C /* SectionHeaderView.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E291655820475081001930DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E291653B20475081001930DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E291654220475081001930DA;
+			remoteInfo = AsosRecipies;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		145A9EBE1C36B78D6EC56856 /* Pods-AsosRecipesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsosRecipesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsosRecipesTests/Pods-AsosRecipesTests.release.xcconfig"; sourceTree = "<group>"; };
+		147D3AFB59A73A426FBB319C /* Pods_AsosRecipes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AsosRecipes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		233C1AD9B52D5CE7ED6E7AAA /* Pods-AsosRecipesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsosRecipesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsosRecipesTests/Pods-AsosRecipesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7CCFABE68F5B413E91A601B8 /* Pods-AsosRecipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsosRecipes.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsosRecipes/Pods-AsosRecipes.release.xcconfig"; sourceTree = "<group>"; };
+		C3CFF0F4F5BE1597C62436C3 /* Pods_AsosRecipesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AsosRecipesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E23025E0204AFF90006408F2 /* ModelRendererCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRendererCell.swift; sourceTree = "<group>"; };
+		E23025E5204B1FFB006408F2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E23025EA204B226A006408F2 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		E23025ED204B23B6006408F2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		E23025EF204B23C0006408F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E23025F0204B23C4006408F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = Base; path = Base.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		E23025F1204B4649006408F2 /* OptionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsPresenter.swift; sourceTree = "<group>"; };
+		E28215A42047626E00839798 /* RecipesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesListViewController.swift; sourceTree = "<group>"; };
+		E28215A52047626E00839798 /* RecipesListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipesListViewController.xib; sourceTree = "<group>"; };
+		E28215A82047628700839798 /* RecipeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewController.swift; sourceTree = "<group>"; };
+		E28215A92047628700839798 /* RecipeDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeDetailsViewController.xib; sourceTree = "<group>"; };
+		E28215AE2047634600839798 /* ExternalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalView.swift; sourceTree = "<group>"; };
+		E28215B22047640400839798 /* RecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewCell.swift; sourceTree = "<group>"; };
+		E28215B32047640400839798 /* RecipeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCollectionViewCell.xib; sourceTree = "<group>"; };
+		E28215B62047646800839798 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
+		E28215B72047646800839798 /* IngredientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientTableViewCell.xib; sourceTree = "<group>"; };
+		E28215BA2047649800839798 /* StepTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepTableViewCell.swift; sourceTree = "<group>"; };
+		E28215BB2047649800839798 /* StepTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepTableViewCell.xib; sourceTree = "<group>"; };
+		E291654320475081001930DA /* AsosRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsosRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E291654620475081001930DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E291654D20475081001930DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E291655020475081001930DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E291655220475081001930DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E291655720475081001930DA /* AsosRecipesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsosRecipesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E291655B20475081001930DA /* AsosRecipiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsosRecipiesTests.swift; sourceTree = "<group>"; };
+		E291655D20475081001930DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E29165682047556D001930DA /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		E291656A20475581001930DA /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
+		E2916570204758AD001930DA /* RecipeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTests.swift; sourceTree = "<group>"; };
+		E2916572204758F1001930DA /* IngredientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTests.swift; sourceTree = "<group>"; };
+		E296E3F02049DC0F00B5E6EA /* RecipeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewModel.swift; sourceTree = "<group>"; };
+		E2C1C401204A1677003AA78C /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
+		E2C1C403204A1A97003AA78C /* CoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverTableViewCell.swift; sourceTree = "<group>"; };
+		E2C1C404204A1A97003AA78C /* CoverTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoverTableViewCell.xib; sourceTree = "<group>"; };
+		E2C1C40E204AEFF9003AA78C /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		E2C1C410204AF013003AA78C /* SectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
+		FB5CCF5003C61C362CD9E786 /* Pods-AsosRecipes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsosRecipes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsosRecipes/Pods-AsosRecipes.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E291654020475081001930DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CECCC5EF5E3AE35E317B193 /* Pods_AsosRecipes.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E291655420475081001930DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47DB56CF7BA2233B43865495 /* Pods_AsosRecipesTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1E6325100A8BB7284F9F76B6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FB5CCF5003C61C362CD9E786 /* Pods-AsosRecipes.debug.xcconfig */,
+				7CCFABE68F5B413E91A601B8 /* Pods-AsosRecipes.release.xcconfig */,
+				233C1AD9B52D5CE7ED6E7AAA /* Pods-AsosRecipesTests.debug.xcconfig */,
+				145A9EBE1C36B78D6EC56856 /* Pods-AsosRecipesTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E23025DF204AF81F006408F2 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				E23025E6204B1FFB006408F2 /* Localizable.strings */,
+				E23025EE204B23B6006408F2 /* Localizable.stringsdict */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		E23025E9204B2258006408F2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E23025EA204B226A006408F2 /* StringExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E282159C204761F900839798 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E28215AD2047632200839798 /* Protocols */,
+				E282159D2047620500839798 /* RecipesList */,
+				E282159F2047623300839798 /* RecipeDetails */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		E282159D2047620500839798 /* RecipesList */ = {
+			isa = PBXGroup;
+			children = (
+				E296E3EF2049DB6200B5E6EA /* ViewModels */,
+				E28215A22047624E00839798 /* Cells */,
+				E28215A02047623F00839798 /* ViewController */,
+			);
+			path = RecipesList;
+			sourceTree = "<group>";
+		};
+		E282159F2047623300839798 /* RecipeDetails */ = {
+			isa = PBXGroup;
+			children = (
+				E2C1C407204A20E2003AA78C /* ViewModels */,
+				E28215A32047625300839798 /* Cells */,
+				E28215A12047624700839798 /* ViewController */,
+			);
+			path = RecipeDetails;
+			sourceTree = "<group>";
+		};
+		E28215A02047623F00839798 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E28215A42047626E00839798 /* RecipesListViewController.swift */,
+				E28215A52047626E00839798 /* RecipesListViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E28215A12047624700839798 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E28215A82047628700839798 /* RecipeDetailsViewController.swift */,
+				E28215A92047628700839798 /* RecipeDetailsViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E28215A22047624E00839798 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E28215B22047640400839798 /* RecipeCollectionViewCell.swift */,
+				E28215B32047640400839798 /* RecipeCollectionViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E28215A32047625300839798 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E2C1C40B204AEFA8003AA78C /* SectionHeader */,
+				E2C1C408204AEF8E003AA78C /* Cover */,
+				E2C1C409204AEF9A003AA78C /* Ingredient */,
+				E2C1C40A204AEFA2003AA78C /* Step */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E28215AC2047631300839798 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E23025DF204AF81F006408F2 /* Localization */,
+				E291654F20475081001930DA /* LaunchScreen.storyboard */,
+				E291654D20475081001930DA /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E28215AD2047632200839798 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E28215AE2047634600839798 /* ExternalView.swift */,
+				E23025E0204AFF90006408F2 /* ModelRendererCell.swift */,
+				E23025F1204B4649006408F2 /* OptionsPresenter.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E291653A20475081001930DA = {
+			isa = PBXGroup;
+			children = (
+				E291654520475081001930DA /* AsosRecipes */,
+				E291655A20475081001930DA /* AsosRecipiesTests */,
+				E291654420475081001930DA /* Products */,
+				1E6325100A8BB7284F9F76B6 /* Pods */,
+				F48FEB1836580DC0EC1F0DB9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E291654420475081001930DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E291654320475081001930DA /* AsosRecipes.app */,
+				E291655720475081001930DA /* AsosRecipesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E291654520475081001930DA /* AsosRecipes */ = {
+			isa = PBXGroup;
+			children = (
+				E291655220475081001930DA /* Info.plist */,
+				E291654620475081001930DA /* AppDelegate.swift */,
+				E291656620475533001930DA /* Networking */,
+				E282159C204761F900839798 /* UI */,
+				E23025E9204B2258006408F2 /* Extensions */,
+				E28215AC2047631300839798 /* Resources */,
+			);
+			path = AsosRecipes;
+			sourceTree = "<group>";
+		};
+		E291655A20475081001930DA /* AsosRecipiesTests */ = {
+			isa = PBXGroup;
+			children = (
+				E291656C2047587E001930DA /* Networking */,
+				E291655B20475081001930DA /* AsosRecipiesTests.swift */,
+				E291655D20475081001930DA /* Info.plist */,
+			);
+			path = AsosRecipiesTests;
+			sourceTree = "<group>";
+		};
+		E291656620475533001930DA /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E291656720475539001930DA /* Models */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		E291656720475539001930DA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E29165682047556D001930DA /* Recipe.swift */,
+				E291656A20475581001930DA /* Ingredients.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E291656C2047587E001930DA /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E291656D20475889001930DA /* Models */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		E291656D20475889001930DA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E2916572204758F1001930DA /* IngredientTests.swift */,
+				E2916570204758AD001930DA /* RecipeTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E296E3EF2049DB6200B5E6EA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E2C1C401204A1677003AA78C /* RecipeViewModel.swift */,
+				E296E3F02049DC0F00B5E6EA /* RecipeListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E2C1C407204A20E2003AA78C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E2C1C408204AEF8E003AA78C /* Cover */ = {
+			isa = PBXGroup;
+			children = (
+				E2C1C403204A1A97003AA78C /* CoverTableViewCell.swift */,
+				E2C1C404204A1A97003AA78C /* CoverTableViewCell.xib */,
+			);
+			path = Cover;
+			sourceTree = "<group>";
+		};
+		E2C1C409204AEF9A003AA78C /* Ingredient */ = {
+			isa = PBXGroup;
+			children = (
+				E28215B62047646800839798 /* IngredientTableViewCell.swift */,
+				E28215B72047646800839798 /* IngredientTableViewCell.xib */,
+			);
+			path = Ingredient;
+			sourceTree = "<group>";
+		};
+		E2C1C40A204AEFA2003AA78C /* Step */ = {
+			isa = PBXGroup;
+			children = (
+				E28215BA2047649800839798 /* StepTableViewCell.swift */,
+				E28215BB2047649800839798 /* StepTableViewCell.xib */,
+			);
+			path = Step;
+			sourceTree = "<group>";
+		};
+		E2C1C40B204AEFA8003AA78C /* SectionHeader */ = {
+			isa = PBXGroup;
+			children = (
+				E2C1C40E204AEFF9003AA78C /* SectionHeaderView.swift */,
+				E2C1C410204AF013003AA78C /* SectionHeaderView.xib */,
+			);
+			path = SectionHeader;
+			sourceTree = "<group>";
+		};
+		F48FEB1836580DC0EC1F0DB9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				147D3AFB59A73A426FBB319C /* Pods_AsosRecipes.framework */,
+				C3CFF0F4F5BE1597C62436C3 /* Pods_AsosRecipesTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E291654220475081001930DA /* AsosRecipes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E291656020475081001930DA /* Build configuration list for PBXNativeTarget "AsosRecipes" */;
+			buildPhases = (
+				5A0AB2B446C7CFB885688F88 /* [CP] Check Pods Manifest.lock */,
+				E291653F20475081001930DA /* Sources */,
+				E291654020475081001930DA /* Frameworks */,
+				E291654120475081001930DA /* Resources */,
+				6C763FEC8B878D38599AB0C3 /* [CP] Embed Pods Frameworks */,
+				AA329CD844339CD1EDFEA209 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AsosRecipes;
+			productName = AsosRecipies;
+			productReference = E291654320475081001930DA /* AsosRecipes.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E291655620475081001930DA /* AsosRecipesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E291656320475081001930DA /* Build configuration list for PBXNativeTarget "AsosRecipesTests" */;
+			buildPhases = (
+				9165BF3516B9B3645BAAB4A1 /* [CP] Check Pods Manifest.lock */,
+				E291655320475081001930DA /* Sources */,
+				E291655420475081001930DA /* Frameworks */,
+				E291655520475081001930DA /* Resources */,
+				12D454F1783DB28E60C9256A /* [CP] Embed Pods Frameworks */,
+				B0F5B910333F1038FDECB30F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E291655920475081001930DA /* PBXTargetDependency */,
+			);
+			name = AsosRecipesTests;
+			productName = AsosRecipiesTests;
+			productReference = E291655720475081001930DA /* AsosRecipesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E291653B20475081001930DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = danieltmbr;
+				TargetAttributes = {
+					E291654220475081001930DA = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					E291655620475081001930DA = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E291654220475081001930DA;
+					};
+				};
+			};
+			buildConfigurationList = E291653E20475081001930DA /* Build configuration list for PBXProject "AsosRecipes" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E291653A20475081001930DA;
+			productRefGroup = E291654420475081001930DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E291654220475081001930DA /* AsosRecipes */,
+				E291655620475081001930DA /* AsosRecipesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E291654120475081001930DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E28215B92047646800839798 /* IngredientTableViewCell.xib in Resources */,
+				E23025E4204B1FFB006408F2 /* Localizable.strings in Resources */,
+				E2C1C406204A1A97003AA78C /* CoverTableViewCell.xib in Resources */,
+				E23025EC204B23B6006408F2 /* Localizable.stringsdict in Resources */,
+				E28215B52047640400839798 /* RecipeCollectionViewCell.xib in Resources */,
+				E28215A72047626E00839798 /* RecipesListViewController.xib in Resources */,
+				E2C1C411204AF013003AA78C /* SectionHeaderView.xib in Resources */,
+				E28215BD2047649800839798 /* StepTableViewCell.xib in Resources */,
+				E291655120475081001930DA /* LaunchScreen.storyboard in Resources */,
+				E291654E20475081001930DA /* Assets.xcassets in Resources */,
+				E28215AB2047628700839798 /* RecipeDetailsViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E291655520475081001930DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		12D454F1783DB28E60C9256A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AsosRecipesTests/Pods-AsosRecipesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A0AB2B446C7CFB885688F88 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AsosRecipes-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C763FEC8B878D38599AB0C3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AsosRecipes/Pods-AsosRecipes-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AsosRecipes/Pods-AsosRecipes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9165BF3516B9B3645BAAB4A1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AsosRecipesTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA329CD844339CD1EDFEA209 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AsosRecipes/Pods-AsosRecipes-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0F5B910333F1038FDECB30F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AsosRecipesTests/Pods-AsosRecipesTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E291653F20475081001930DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E28215A62047626E00839798 /* RecipesListViewController.swift in Sources */,
+				E28215AF2047634600839798 /* ExternalView.swift in Sources */,
+				E2C1C40F204AEFF9003AA78C /* SectionHeaderView.swift in Sources */,
+				E28215AA2047628700839798 /* RecipeDetailsViewController.swift in Sources */,
+				E23025E1204AFF90006408F2 /* ModelRendererCell.swift in Sources */,
+				E23025F2204B4649006408F2 /* OptionsPresenter.swift in Sources */,
+				E291656B20475581001930DA /* Ingredients.swift in Sources */,
+				E28215B82047646800839798 /* IngredientTableViewCell.swift in Sources */,
+				E2C1C405204A1A97003AA78C /* CoverTableViewCell.swift in Sources */,
+				E28215B42047640400839798 /* RecipeCollectionViewCell.swift in Sources */,
+				E28215BC2047649800839798 /* StepTableViewCell.swift in Sources */,
+				E2C1C402204A1677003AA78C /* RecipeViewModel.swift in Sources */,
+				E296E3F12049DC0F00B5E6EA /* RecipeListViewModel.swift in Sources */,
+				E23025EB204B226A006408F2 /* StringExtensions.swift in Sources */,
+				E29165692047556D001930DA /* Recipe.swift in Sources */,
+				E291654720475081001930DA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E291655320475081001930DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2916573204758F1001930DA /* IngredientTests.swift in Sources */,
+				E291655C20475081001930DA /* AsosRecipiesTests.swift in Sources */,
+				E2916571204758AD001930DA /* RecipeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E291655920475081001930DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E291654220475081001930DA /* AsosRecipes */;
+			targetProxy = E291655820475081001930DA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E23025E6204B1FFB006408F2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E23025E5204B1FFB006408F2 /* en */,
+				E23025EF204B23C0006408F2 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		E23025EE204B23B6006408F2 /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E23025ED204B23B6006408F2 /* en */,
+				E23025F0204B23C4006408F2 /* Base */,
+			);
+			name = Localizable.stringsdict;
+			sourceTree = "<group>";
+		};
+		E291654F20475081001930DA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E291655020475081001930DA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E291655E20475081001930DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E291655F20475081001930DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E291656120475081001930DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB5CCF5003C61C362CD9E786 /* Pods-AsosRecipes.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F6W8CTW858;
+				INFOPLIST_FILE = "$(SRCROOT)/AsosRecipes/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hu.tmbr.AsosRecipies;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E291656220475081001930DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CCFABE68F5B413E91A601B8 /* Pods-AsosRecipes.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F6W8CTW858;
+				INFOPLIST_FILE = "$(SRCROOT)/AsosRecipes/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hu.tmbr.AsosRecipies;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E291656420475081001930DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 233C1AD9B52D5CE7ED6E7AAA /* Pods-AsosRecipesTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F6W8CTW858;
+				INFOPLIST_FILE = AsosRecipiesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hu.tmbr.AsosRecipiesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AsosRecipes.app/AsosRecipes";
+			};
+			name = Debug;
+		};
+		E291656520475081001930DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 145A9EBE1C36B78D6EC56856 /* Pods-AsosRecipesTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F6W8CTW858;
+				INFOPLIST_FILE = AsosRecipiesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hu.tmbr.AsosRecipiesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AsosRecipes.app/AsosRecipes";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E291653E20475081001930DA /* Build configuration list for PBXProject "AsosRecipes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E291655E20475081001930DA /* Debug */,
+				E291655F20475081001930DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E291656020475081001930DA /* Build configuration list for PBXNativeTarget "AsosRecipes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E291656120475081001930DA /* Debug */,
+				E291656220475081001930DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E291656320475081001930DA /* Build configuration list for PBXNativeTarget "AsosRecipesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E291656420475081001930DA /* Debug */,
+				E291656520475081001930DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E291653B20475081001930DA /* Project object */;
+}

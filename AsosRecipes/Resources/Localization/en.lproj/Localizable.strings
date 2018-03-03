@@ -1,0 +1,27 @@
+/*
+  Lacalizable.strings
+  AsosRecipes
+
+  Created by Daniel Tombor on 2018. 03. 03..
+  Copyright © 2018. danieltmbr. All rights reserved.
+*/
+
+// MARK: - Difficulties
+
+"difficulty.rookie" = "Easy";
+"difficulty.intermediate" = "Medium";
+"difficulty.advanced" = "Hard";
+"difficulty.any" = "Any difficulty";
+
+// MARK: - Difficulties
+
+"duration.quick" = "0 - 10 min";
+"duration.medium" = "10 - 20 min";
+"duration.slow" = "> 20 min";
+"duration.any" = "No time range";
+
+// MARK: - RecipesListViewController
+
+"Search by name" = "Search by name";
+"Select difficulty" = "Select difficulty";
+"Select duration" = "Select duration";

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CoverTableViewCell" rowHeight="320" id="KGk-i7-Jjw" customClass="CoverTableViewCell" customModule="AsosRecipes" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="319.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RJD-kp-ViD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="RJD-kp-ViD" secondAttribute="height" multiplier="1:1" id="r74-ky-25U"/>
+                        </constraints>
+                    </imageView>
+                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="62p-re-BV0">
+                        <rect key="frame" x="0.0" y="283.5" width="320" height="35.5"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7gb-iW-7r5">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="35.5"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciF-Fw-Pls">
+                                    <rect key="frame" x="10" y="8" width="300" height="19.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="ciF-Fw-Pls" secondAttribute="trailing" constant="10" id="ahW-Gb-p4m"/>
+                                <constraint firstAttribute="bottom" secondItem="ciF-Fw-Pls" secondAttribute="bottom" constant="8" id="mS9-MP-98L"/>
+                                <constraint firstItem="ciF-Fw-Pls" firstAttribute="leading" secondItem="7gb-iW-7r5" secondAttribute="leading" constant="10" id="sQB-th-SCu"/>
+                                <constraint firstItem="ciF-Fw-Pls" firstAttribute="top" secondItem="7gb-iW-7r5" secondAttribute="top" constant="8" id="zWO-9R-pOt"/>
+                            </constraints>
+                        </view>
+                        <viewLayoutGuide key="safeArea" id="xRG-Sg-otd"/>
+                        <blurEffect style="extraLight"/>
+                    </visualEffectView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="62p-re-BV0" secondAttribute="bottom" id="3lW-RE-1va"/>
+                    <constraint firstAttribute="trailing" secondItem="62p-re-BV0" secondAttribute="trailing" id="6LX-GN-R0b"/>
+                    <constraint firstAttribute="trailing" secondItem="RJD-kp-ViD" secondAttribute="trailing" id="87R-PZ-9n1"/>
+                    <constraint firstItem="RJD-kp-ViD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="8iZ-12-1f1"/>
+                    <constraint firstAttribute="bottom" secondItem="RJD-kp-ViD" secondAttribute="bottom" id="G62-8K-c0i"/>
+                    <constraint firstItem="RJD-kp-ViD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="KBH-Ji-K6R"/>
+                    <constraint firstItem="62p-re-BV0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mPf-MR-dPH"/>
+                </constraints>
+                <viewLayoutGuide key="safeArea" id="Ihw-5m-g4y"/>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="coverImageView" destination="RJD-kp-ViD" id="Q3N-YA-1pE"/>
+                <outlet property="titleLabel" destination="ciF-Fw-Pls" id="3Ah-Jo-6bi"/>
+            </connections>
+            <point key="canvasLocation" x="91" y="192"/>
+        </tableViewCell>
+    </objects>
+</document>

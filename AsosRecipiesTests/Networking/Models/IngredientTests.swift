@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import AsosRecipies
+@testable import AsosRecipes
 
 class IngredientTests: XCTestCase {
 
