@@ -66,11 +66,12 @@ final class RecipesListViewController: UIViewController, OptionsPresenter {
 
     // MARK: - IBOutlets
 
+    /** Recipes collection view */
+    @IBOutlet weak private var collectionView: UICollectionView!
+
     @IBOutlet weak private var durationButton: UIButton!
 
     @IBOutlet weak private var difficultyButton: UIButton!
-    /** Recipes collection view */
-    @IBOutlet weak private var collectionView: UICollectionView!
 
     // MARK: - Initialisation methods
 
@@ -145,8 +146,7 @@ final class RecipesListViewController: UIViewController, OptionsPresenter {
             .disposed(by: disposeBag)
 
         // Bind duration button tap
-        difficultyButton.rx.tap
-            .asObservable()
+        difficultyButton.rx.tap.asObservable()
             .observeOn(MainScheduler.instance)
             .flatMap { [unowned self] in
                 self.presentOptions(
@@ -154,9 +154,9 @@ final class RecipesListViewController: UIViewController, OptionsPresenter {
                     options: self.viewModel.difficulties
                 )
             }
+            .distinctUntilChanged()
             .bind(to: viewModel.difficulty)
             .disposed(by: disposeBag)
-
 
         // Bind duration button title
         viewModel.duration.asObservable()
@@ -165,8 +165,7 @@ final class RecipesListViewController: UIViewController, OptionsPresenter {
             .disposed(by: disposeBag)
 
         // Bind duration button tap 
-        durationButton.rx.tap
-            .asObservable()
+        durationButton.rx.tap.asObservable()
             .observeOn(MainScheduler.instance)
             .flatMap { [unowned self] in
                 self.presentOptions(
@@ -174,6 +173,7 @@ final class RecipesListViewController: UIViewController, OptionsPresenter {
                     options: self.viewModel.durations
                 )
             }
+            .distinctUntilChanged()
             .bind(to: viewModel.duration)
             .disposed(by: disposeBag)
     }
