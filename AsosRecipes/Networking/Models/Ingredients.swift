@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: -
+
 enum IngredientType: String, Codable {
     case baking     = "Baking"
     case condiments = "Condiments"
@@ -17,6 +19,8 @@ enum IngredientType: String, Codable {
     case misc       = "Misc"
     case produce    = "Produce"
 }
+
+// MARK: -
 
 struct Ingredient: Codable {
     /** Name of the ingredient */
