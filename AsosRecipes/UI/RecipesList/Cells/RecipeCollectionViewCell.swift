@@ -32,6 +32,18 @@ final class RecipeCollectionViewCell: UICollectionViewCell, ExternalCell {
 
     @IBOutlet weak private var durationLabel: UILabel!
 
+    override var isHighlighted: Bool {
+        didSet {
+            UIView.animate(withDuration: 0.2) { [weak self] in
+                guard let `self` = self else { return }
+                let scale: CGFloat = 0.97
+                self.transform = self.isHighlighted
+                    ? CGAffineTransform(scaleX: scale, y: scale)
+                    : .identity
+            }
+        }
+    }
+
     // MARK: - Public methods
 
     func render(model: RecipeCellViewModel) {
