@@ -10,7 +10,7 @@ import Foundation
 
 protocol RecipeViewModel {
     /** String of a cover image's url */
-    var coverImageUrl: URL { get }
+    var coverImageUrl: URL? { get }
     /** Title of the recipe */
     var title: String { get }
 }

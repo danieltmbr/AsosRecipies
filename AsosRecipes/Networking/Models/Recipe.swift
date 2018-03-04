@@ -15,7 +15,7 @@ struct Recipe: Codable {
     let ingredients: [Ingredient]
     /** Steps of the recipe */
     let steps: [String]
-    /** Time consumption of the steps in minutes */
+    /** Timer for the steps in minutes */
     let timers: [Int]
     /** Cover image url */
     let imageURL: URL

@@ -13,7 +13,7 @@ import Kingfisher
 
 protocol RecipeCellViewModel: RecipeViewModel {
     /** Number of the ingredients */
-    var ingredients: String { get }
+    var ingredientsCount: String { get }
     /** Duration of the steps */
     var duration: String { get }
 }
@@ -38,7 +38,7 @@ final class RecipeCollectionViewCell: UICollectionViewCell, ExternalCell {
         let processor = ResizingImageProcessor(referenceSize: bounds.size, mode: .aspectFill)
         coverImageView.kf.setImage(with: model.coverImageUrl, options: [.processor(processor)])
         titleLabel.text = model.title
-        ingredientsLabel.text = model.ingredients
+        ingredientsLabel.text = model.ingredientsCount
         durationLabel.text = model.duration
     }
 }

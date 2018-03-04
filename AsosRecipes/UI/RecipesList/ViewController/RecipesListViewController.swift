@@ -44,7 +44,7 @@ private struct Constants {
     /** Spacing between cells and rows */
     let spacing: CGFloat = 1
     /** Aspect ratio of cell (width:height) */
-    let aspectRatio: CGFloat = 0.7
+    let aspectRatio: CGFloat = 0.8
     /** SearchBar's placeholder text */
     let searchBarPlaceholder = "Search by name".localized(comment: "SearchBar's placeholder text.")
 }
@@ -127,6 +127,7 @@ final class RecipesListViewController: UIViewController, OptionsPresenter {
 
         // Bind recipies to the collectionView
         viewModel.recipes
+            .subscribeOn(MainScheduler.asyncInstance)
             .bind(to: collectionView.rx.items(
                 cellIdentifier: RecipeCollectionViewCell.identifier,
                 cellType: RecipeCollectionViewCell.self)
@@ -141,6 +142,7 @@ final class RecipesListViewController: UIViewController, OptionsPresenter {
 
         // Bind difficulty button title
         viewModel.difficulty.asObservable()
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
             .map { $0.title }
             .bind(to: difficultyButton.rx.title(for: .normal))
             .disposed(by: disposeBag)
@@ -160,6 +162,7 @@ final class RecipesListViewController: UIViewController, OptionsPresenter {
 
         // Bind duration button title
         viewModel.duration.asObservable()
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
             .map { $0.title }
             .bind(to: durationButton.rx.title(for: .normal))
             .disposed(by: disposeBag)
@@ -186,17 +189,8 @@ extension RecipesListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width - constants.spacing
+        let width = (collectionView.bounds.width - constants.spacing)/2
         let height = width / constants.aspectRatio
         return CGSize(width: width, height: height)
-    }
-}
-
-// MARK: -
-
-extension RecipesListViewController: UICollectionViewDataSourcePrefetching {
-
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        // ImagePrefetcher(urls: [URL]()).start()
     }
 }

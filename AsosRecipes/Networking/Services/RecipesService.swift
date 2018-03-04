@@ -25,7 +25,7 @@ final class RecipesServiceClient {
 
     // MARK: - Initialisation
 
-    init(provider: MoyaProvider<RecipesEndpoints>) {
+    init(provider: MoyaProvider<RecipesEndpoints> = MoyaProvider<RecipesEndpoints>()) {
         self.provider = provider
     }
 }
@@ -37,6 +37,7 @@ extension RecipesServiceClient: RecipesService {
     func fetchRecipes() -> Single<[Recipe]> {
         return provider.rx
             .request(.all)
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .utility))
             .map([Recipe].self)
     }
 }
