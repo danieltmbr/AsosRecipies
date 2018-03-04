@@ -11,7 +11,6 @@
 		47DB56CF7BA2233B43865495 /* Pods_AsosRecipesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CFF0F4F5BE1597C62436C3 /* Pods_AsosRecipesTests.framework */; };
 		E23025E1204AFF90006408F2 /* ModelRendererCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23025E0204AFF90006408F2 /* ModelRendererCell.swift */; };
 		E23025EB204B226A006408F2 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23025EA204B226A006408F2 /* StringExtensions.swift */; };
-		E23025EC204B23B6006408F2 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = E23025EE204B23B6006408F2 /* Localizable.stringsdict */; };
 		E23025F2204B4649006408F2 /* OptionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23025F1204B4649006408F2 /* OptionsPresenter.swift */; };
 		E23025F5204B58D8006408F2 /* RecipesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23025F4204B58D8006408F2 /* RecipesService.swift */; };
 		E23025F7204B67A0006408F2 /* RecipesEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23025F6204B67A0006408F2 /* RecipesEndpoints.swift */; };
@@ -25,6 +24,7 @@
 		E2302613204C1BD7006408F2 /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2302612204C1BD7006408F2 /* Difficulty.swift */; };
 		E2302615204C1BE8006408F2 /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2302614204C1BE8006408F2 /* Duration.swift */; };
 		E2302616204C5FBC006408F2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E23025E6204B1FFB006408F2 /* Localizable.strings */; };
+		E2302617204C8173006408F2 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = E23025EE204B23B6006408F2 /* Localizable.stringsdict */; };
 		E28215A62047626E00839798 /* RecipesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28215A42047626E00839798 /* RecipesListViewController.swift */; };
 		E28215A72047626E00839798 /* RecipesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E28215A52047626E00839798 /* RecipesListViewController.xib */; };
 		E28215AA2047628700839798 /* RecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28215A82047628700839798 /* RecipeDetailsViewController.swift */; };
@@ -548,7 +548,7 @@
 				E28215B92047646800839798 /* IngredientTableViewCell.xib in Resources */,
 				E2C1C406204A1A97003AA78C /* CoverTableViewCell.xib in Resources */,
 				E2302616204C5FBC006408F2 /* Localizable.strings in Resources */,
-				E23025EC204B23B6006408F2 /* Localizable.stringsdict in Resources */,
+				E2302617204C8173006408F2 /* Localizable.stringsdict in Resources */,
 				E28215B52047640400839798 /* RecipeCollectionViewCell.xib in Resources */,
 				E28215A72047626E00839798 /* RecipesListViewController.xib in Resources */,
 				E2C1C411204AF013003AA78C /* SectionHeaderView.xib in Resources */,
@@ -621,6 +621,7 @@
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -632,6 +633,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

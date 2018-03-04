@@ -15,6 +15,7 @@ target 'AsosRecipes' do
 
   # Database
   pod 'RealmSwift', '~> 3.1.1'
+  pod 'RxRealm', '~> 0.7.5'
 
   # Utils
   pod 'RxSwift', '~> 4.1.2'
