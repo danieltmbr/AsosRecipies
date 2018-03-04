@@ -157,7 +157,8 @@ private extension Duration {
         switch self {
         case .quick: return 10
         case .medium: return 20
-        default: return 1000 // Int.max did not work with predicate...
+        // TECHDEBT: - Find a better solution
+        default: return 1000 // Temporary: Int.max did not work with predicate...
         }
     }
 }
