@@ -8,41 +8,19 @@
 
 import RealmSwift
 
-final class RecipesRealmStorage {
+final class RecipesRealmStorage: RecipesStorage {
 
-    let realm = try! Realm()
+    // MARK: - Properties
 
-    private func setRelativeDifficulties(for recipes: [RecipeModel]) {
-
-        var easiest: Double = .greatestFiniteMagnitude
-        var hardest: Double = 0
-
-        // Calculate absolute difficulties
-        recipes.forEach {
-            let stepsWeight = pow(Double($0.steps.count), 2)
-            let ingredientsWeight = pow(Double($0.ingredients.count), 2)
-            let dif = sqrt(stepsWeight + ingredientsWeight)
-            $0.difficulty = dif
-            easiest = min(dif, easiest)
-            hardest = max(dif, hardest)
-        }
-
-        // Normalise difficulties: 0 to 1
-        let interval = hardest - easiest
-        recipes.forEach {
-            $0.difficulty = ($0.difficulty-easiest)/interval
-        }
-    }
-}
-
-extension RecipesRealmStorage: RecipesStorage {
+    private let realm = try! Realm()
 
     var updatedTime: TimeInterval {
         return 5000
     }
 
+    // MARK: - Public methods
+
     func getRecipes(title: String, difficulty: Difficulty, duration: Duration) -> [RecipeModel] {
-        let realm = try! Realm()
         // TODO: error handling
         let predicate = NSPredicate(
             format: """
@@ -71,6 +49,30 @@ extension RecipesRealmStorage: RecipesStorage {
         } catch let error {
             // TODO: Error handling
             print(error)
+        }
+    }
+
+    // MARK: - Private methods
+
+    private func setRelativeDifficulties(for recipes: [RecipeModel]) {
+
+        var easiest: Double = .greatestFiniteMagnitude
+        var hardest: Double = 0
+
+        // Calculate absolute difficulties
+        recipes.forEach {
+            let stepsWeight = pow(Double($0.steps.count), 2)
+            let ingredientsWeight = pow(Double($0.ingredients.count), 2)
+            let dif = sqrt(stepsWeight + ingredientsWeight)
+            $0.difficulty = dif
+            easiest = min(dif, easiest)
+            hardest = max(dif, hardest)
+        }
+
+        // Normalise difficulties: 0 to 1
+        let interval = hardest - easiest
+        recipes.forEach {
+            $0.difficulty = ($0.difficulty-easiest)/interval
         }
     }
 }
