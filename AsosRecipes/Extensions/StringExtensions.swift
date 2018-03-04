@@ -15,6 +15,6 @@ extension String {
     }
 
     func localized(with variable: CVarArg, comment: String = "") -> String {
-        return String(format: localized(comment: comment), [variable])
+        return String(format: localized(comment: comment), variable)
     }
 }
