@@ -13,6 +13,9 @@ target 'AsosRecipes' do
   # Image cache and download
   pod 'Kingfisher', '~> 4.6.2'
 
+  # Database
+  pod 'RealmSwift', '~> 3.1.1'
+
   # Utils
   pod 'RxSwift', '~> 4.1.2'
   pod 'RxCocoa', '~> 4.1.2'

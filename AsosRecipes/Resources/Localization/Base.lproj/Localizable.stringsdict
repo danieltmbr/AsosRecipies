@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>%d ingredients</key>
+	<key>%d ingredient(s)</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
 		<string>%#@ingredients@</string>
@@ -20,7 +20,7 @@
 			<string>%d ingredients</string>
 		</dict>
 	</dict>
-	<key>%d minutes</key>
+	<key>%d minute(s)</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
 		<string>%#@minutes@</string>
