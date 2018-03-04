@@ -1,58 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>TEAM_RANK_ORDINAL</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@ordinal_string@</string>
-		<key>ordinal_string</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d egy</string>
-			<key>other</key>
-			<string>%d sok</string>
-		</dict>
-	</dict>
-	<key>%d ingredients</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@ingredients@</string>
-		<key>ingredients</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>No ingredients</string>
-			<key>one</key>
-			<string>%d ingredient</string>
-			<key>other</key>
-			<string>%d ingredients</string>
-		</dict>
-	</dict>
-	<key>%d minutes</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@minutes@</string>
-		<key>minutes</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>Instant</string>
-			<key>one</key>
-			<string>%d minute</string>
-			<key>other</key>
-			<string>%d minutes</string>
-		</dict>
-	</dict>
-</dict>
+    <dict>
+        <key>%d ingredient(s)</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@ingredients@</string>
+            <key>ingredients</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>zero</key>
+                <string>No ingredients</string>
+                <key>one</key>
+                <string>%d ingredient</string>
+                <key>other</key>
+                <string>%d ingredients</string>
+            </dict>
+        </dict>
+        <key>%d minute(s)</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@minutes@</string>
+            <key>minutes</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>zero</key>
+                <string>Instant</string>
+                <key>one</key>
+                <string>%d minute</string>
+                <key>other</key>
+                <string>%d minutes</string>
+            </dict>
+        </dict>
+    </dict>
 </plist>
+
