@@ -85,7 +85,6 @@ extension RecipeListModel: RecipeListViewModel {
                 difficulty.asObservable(),
                 duration.asObservable())
             .asObservable()
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .utility))
             .flatMapLatest { [weak self] (title, difficulty, duration) -> Observable<[RecipeModel]> in
                 guard let `self` = self else { return Observable.just([]) }
                 return self.dataProvider.fetchRecipes(
