@@ -7,6 +7,9 @@ target 'AsosRecipes' do
   # ignore all warnings from all pods
   inhibit_all_warnings!
 
+  # Networking
+  pod 'Moya/RxSwift', '~> 11.0.0'
+
   # Image cache and download
   pod 'Kingfisher', '~> 4.6.2'
 
