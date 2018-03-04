@@ -12,12 +12,10 @@ import RxCocoa
 protocol RecipesProvider {
     /** Indicates if recipies are being fetched */
     var isLoading: Observable<Bool> { get }
-    /** Filtered recipies */
-    var recipes: Observable<[RecipeModel]> { get }
     /** Error occured during getting the recipies */
     var error: Observable<Error?> { get }
     /** Fetching recipies from cache or network */
-    func fetchRecipes(title: String, difficulty: Difficulty, duration: Duration)
+    func fetchRecipes(title: String, difficulty: Difficulty, duration: Duration) -> Observable<[RecipeModel]>
 }
 
 // MARK: -
@@ -53,22 +51,22 @@ final class RecipeListModel {
     // MARK: - Private methods
 
     private func setupBidings() {
-
-        // Filters
-        Observable
-            .combineLatest(
-                searchText.asObservable(),
-                difficulty.asObservable(),
-                duration.asObservable())
-            .asObservable()
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .utility))
-            .subscribe(onNext: { [weak self] (title, difficulty, duration) in
-                self?.dataProvider.fetchRecipes(
-                    title: title,
-                    difficulty: difficulty,
-                    duration: duration)
-            })
-            .disposed(by: disposeBag)
+//
+//        Observable
+//            .combineLatest(
+//                searchText.asObservable(),
+//                difficulty.asObservable(),
+//                duration.asObservable())
+//            .asObservable()
+//            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .utility))
+//            .flatMapLatest { [weak self] (title, difficulty, duration) -> Observable<[RecipeModel]> in
+//                guard let `self` = self else { return Observable.just([]) }
+//                return self.dataProvider.fetchRecipes(
+//                    title: title,
+//                    difficulty: difficulty,
+//                    duration: duration)
+//            }
+//            .map { $0.map { RecipeCellModel(model: $0) } }
     }
 }
 
@@ -81,7 +79,24 @@ extension RecipeListModel: RecipeListViewModel {
     }
 
     var recipes: Observable<[RecipeCellViewModel]> {
-        return dataProvider.recipes.map { $0 }
+        return Observable
+            .combineLatest(
+                searchText.asObservable(),
+                difficulty.asObservable(),
+                duration.asObservable())
+            .asObservable()
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .utility))
+            .flatMapLatest { [weak self] (title, difficulty, duration) -> Observable<[RecipeModel]> in
+                guard let `self` = self else { return Observable.just([]) }
+                return self.dataProvider.fetchRecipes(
+                    title: title,
+                    difficulty: difficulty,
+                    duration: duration)
+            }
+            .map { $0.map { RecipeCellModel(model: $0) } }
+//
+//        return dataProvider.recipes
+//            .map { $0.map { RecipeCellModel(model: $0) } }
     }
 
     var error: Observable<Error?> {
@@ -109,20 +124,20 @@ extension RecipeModel: RecipeCellViewModel {
 }
 
 // MARK: -
-//
-//private struct RecipeCellModel: RecipeCellViewModel {
-//
-//    let title: String
-//    let coverImageUrl: URL?
-//    let duration: String
-//    let ingredientsCount: String
-//
-//    init(model: RecipeModel) {
-//        title = model.title
-//        coverImageUrl = URL(string: model.imageURL)
-//        let dur = model.steps.reduce(0) { $0 + $1.timer }
-//        duration = "%d minutes".localized(with: dur)
-//        ingredientsCount = "%d ingredients".localized(with: model.ingredients.count)
-//    }
-//}
+
+private struct RecipeCellModel: RecipeCellViewModel {
+
+    let title: String
+    let coverImageUrl: URL?
+    let duration: String
+    let ingredientsCount: String
+
+    init(model: RecipeModel) {
+        title = model.title
+        coverImageUrl = URL(string: model.imageURL)
+        let dur = model.steps.reduce(0) { $0 + $1.timer }
+        duration = "%d minutes".localized(with: dur)
+        ingredientsCount = "%d ingredients".localized(with: model.ingredients.count)
+    }
+}
 
