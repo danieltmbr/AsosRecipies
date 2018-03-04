@@ -7,12 +7,12 @@
 //
 
 import RealmSwift
+import RxRealm
+import RxSwift
 
 final class RecipesRealmStorage: RecipesStorage {
 
     // MARK: - Properties
-
-    private let realm = try! Realm()
 
     var updatedTime: TimeInterval {
         return 5000
@@ -20,7 +20,9 @@ final class RecipesRealmStorage: RecipesStorage {
 
     // MARK: - Public methods
 
-    func getRecipes(title: String, difficulty: Difficulty, duration: Duration) -> [RecipeModel] {
+    func getRecipes(title: String, difficulty: Difficulty, duration: Duration) -> Observable<[RecipeModel]> {
+
+        let realm = try! Realm()
         // TODO: error handling
         let predicate = NSPredicate(
             format: """
@@ -30,14 +32,17 @@ final class RecipesRealmStorage: RecipesStorage {
             """,
             title+"*", difficulty.min, difficulty.max, duration.min, duration.max)
 
-        let results = realm
+        let recipes = realm
             .objects(RecipeModel.self)
             .filter(predicate)
-        return Array(results)
+
+        return Observable
+            .changeset(from: recipes)
+            .map { Array($0.0) }
     }
 
     func overwrite(recipes: [Recipe]) {
-
+        let realm = try! Realm()
         let recipeModels = recipes.map(mapRecipe)
         setRelativeDifficulties(for: recipeModels)
 

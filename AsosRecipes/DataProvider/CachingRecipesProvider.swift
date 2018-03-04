@@ -15,7 +15,7 @@ protocol RecipesStorage {
     /** Date of the last saving */
     var updatedTime: TimeInterval { get }
     /** Returns the furrent filtered entities */
-    func getRecipes(title: String, difficulty: Difficulty, duration: Duration) -> [RecipeModel]
+    func getRecipes(title: String, difficulty: Difficulty, duration: Duration) -> Observable<[RecipeModel]>
     /** Clears the current entities and saves the new ones */
     func overwrite(recipes: [Recipe])
 }
@@ -32,8 +32,6 @@ final class CachingRecipesProvider {
     private let service: RecipesService
     /** Seconds of cache validity (Time to live) */
     private let cacheValidity: TimeInterval
-    /** Filtered recipies */
-    private let _recipes = BehaviorSubject<[RecipeModel]>(value: [])
     /** Server or database error */
     private let _error = BehaviorRelay<Error?>(value: nil)
     /** Server request is */
@@ -63,7 +61,6 @@ final class CachingRecipesProvider {
                 switch event {
                 case .next(let recipes):
                     self.storage.overwrite(recipes: recipes)
-                    self.getRecipes(title: name, difficulty: difficulty, duration: duration)
                     self._isLoading.accept(false)
                 case .error(let error):
                     self._error.accept(error)
@@ -72,15 +69,6 @@ final class CachingRecipesProvider {
                 }
             }
             .disposed(by: serviceBag)
-    }
-
-    private func getRecipes(title: String, difficulty: Difficulty, duration: Duration) {
-        let recipes = storage.getRecipes(
-            title: title,
-            difficulty: difficulty,
-            duration: duration
-        )
-        _recipes.onNext(recipes)
     }
 }
 
@@ -92,15 +80,11 @@ extension CachingRecipesProvider: RecipesProvider {
         return _isLoading.asObservable()
     }
 
-    var recipes: Observable<[RecipeModel]> {
-        return _recipes.asObservable()
-    }
-
     var error: Observable<Error?> {
         return _error.asObservable()
     }
 
-    func fetchRecipes(title: String, difficulty: Difficulty, duration: Duration) {
+    func fetchRecipes(title: String, difficulty: Difficulty, duration: Duration) -> Observable<[RecipeModel]> {
         // If we're trying to work with outdated entities - refresh
         if storage.updatedTime > cacheValidity {
             loadRecipes(name: title, difficulty: difficulty, duration: duration)
@@ -111,6 +95,6 @@ extension CachingRecipesProvider: RecipesProvider {
         // - cache is invalid:
         //      we display current data until new is loading
         //      so in case of error we're still displaying cached data
-        getRecipes(title: title, difficulty: difficulty, duration: duration)
+        return storage.getRecipes(title: title, difficulty: difficulty, duration: duration)
     }
 }
