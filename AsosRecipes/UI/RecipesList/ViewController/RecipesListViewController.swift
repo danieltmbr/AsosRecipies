@@ -28,7 +28,7 @@ protocol RecipeListViewModel {
     /** Selectable durations */
     var durations: [Duration] { get }
 
-    // MARK: In/Out
+    // MARK: In
 
     /** Search text */
     var searchText: BehaviorRelay<String> { get }
@@ -36,6 +36,9 @@ protocol RecipeListViewModel {
     var difficulty: BehaviorRelay<Difficulty> { get }
     /** Duration of the recipe */
     var duration: BehaviorRelay<Duration> { get }
+    /** Selected model id */
+    var selectRecipeId: BehaviorRelay<String?> { get }
+
 }
 
 // MARK: -
@@ -136,9 +139,13 @@ final class RecipesListViewController: UIViewController, OptionsPresenter {
             }
             .disposed(by: disposeBag)
 
-
         // Bind item selection action
-        // TODO: Navigate at didSelect
+        collectionView.rx
+            .modelSelected(RecipeCellViewModel.self)
+            .asObservable()
+            .map { $0.id }
+            .bind(to: viewModel.selectRecipeId)
+            .disposed(by: disposeBag)
 
         // Bind difficulty button title
         viewModel.difficulty.asObservable()

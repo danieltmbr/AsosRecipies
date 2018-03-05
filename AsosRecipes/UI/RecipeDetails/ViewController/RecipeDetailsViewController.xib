@@ -21,19 +21,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SLK-yU-skv">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <viewLayoutGuide key="safeArea" id="HIL-Ax-dJe"/>
                     <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="BvI-Hx-fI3"/>
+                        <outlet property="delegate" destination="-1" id="APY-VZ-MHx"/>
+                    </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="SLK-yU-skv" secondAttribute="bottom" id="H5p-cz-MxT"/>
-                <constraint firstItem="SLK-yU-skv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="QHU-WP-xun"/>
+                <constraint firstAttribute="bottom" secondItem="SLK-yU-skv" secondAttribute="bottom" id="H5p-cz-MxT"/>
                 <constraint firstAttribute="trailing" secondItem="SLK-yU-skv" secondAttribute="trailing" id="TXJ-r5-46C"/>
                 <constraint firstItem="SLK-yU-skv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Zn5-HC-tNN"/>
+                <constraint firstItem="SLK-yU-skv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="i5B-6c-1fh"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <point key="canvasLocation" x="34.5" y="54.5"/>
         </view>
     </objects>
 </document>

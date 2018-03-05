@@ -11,24 +11,15 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    // MARK: - Properties
+
+    private var appCoordinator: Coordinator!
+
+    // MARK: - Public methods
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
-        window = UIWindow()
-        window?.makeKeyAndVisible()
-
-        let difficulties: [Difficulty] = [.any, .rookie, .intermediate, .advanced]
-        let durations: [Duration] = [.any, .quick, .medium, .slow]
-
-        let storage = RecipesRealmStorage()
-        let service = RecipesServiceClient()
-        let dataProvider = CachingRecipesProvider(storage: storage, service: service)
-        let viewModel = RecipeListModel(dataProvider: dataProvider, difficulties: difficulties, durations: durations)
-        let listViewController = RecipesListViewController(with: viewModel)
-
-        window?.rootViewController =  UINavigationController(rootViewController: listViewController)
-
+        appCoordinator = AppCoordinator(window: UIWindow())
+        appCoordinator.start()
         return true
     }
 }

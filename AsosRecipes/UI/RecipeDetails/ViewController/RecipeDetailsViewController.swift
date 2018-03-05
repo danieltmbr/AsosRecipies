@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 // MARK: -
 
@@ -47,6 +48,8 @@ final class RecipeDetailsViewController: UIViewController, URLSessionDelegate {
 
     /** Data */
     private let viewModel: RecipeDetailsViewModel
+    /** Dismiss delegate */
+    private weak var delegate: DismissDelegate?
 
     // MARK: - IBOutlets
 
@@ -55,8 +58,9 @@ final class RecipeDetailsViewController: UIViewController, URLSessionDelegate {
 
     // MARK: - Initialisation methods
 
-    init(with viewModel: RecipeDetailsViewModel) {
+    init(with viewModel: RecipeDetailsViewModel, delegate: DismissDelegate) {
         self.viewModel = viewModel
+        self.delegate = delegate
         super.init(nibName: "RecipeDetailsViewController", bundle: nil)
     }
     
@@ -69,6 +73,16 @@ final class RecipeDetailsViewController: UIViewController, URLSessionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+//        navigationController?.navigationBar.isTranslucent = true
+//        navigationController?.navigationBar.barTintColor = .clear
+//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if !(navigationController?.viewControllers.contains(self) ?? false) {
+            delegate?.dismissed(viewController: self)
+        }
     }
 
     // MARK: - Private methods
