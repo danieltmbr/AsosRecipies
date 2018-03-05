@@ -18,6 +18,8 @@ protocol RecipesStorage {
     func getRecipes(title: String, difficulty: Difficulty, duration: Duration) -> Observable<[RecipeModel]>
     /** Clears the current entities and saves the new ones */
     func overwrite(recipes: [Recipe])
+    /** Returns a recipie by id if exists */
+    func getRecipe(by id: String) -> RecipeModel?
 }
 
 // MARK: -
@@ -96,5 +98,9 @@ extension CachingRecipesProvider: RecipesProvider {
         //      we display current data until new is loading
         //      so in case of error we're still displaying cached data
         return storage.getRecipes(title: title, difficulty: difficulty, duration: duration)
+    }
+
+    func getRecipe(by id: String) -> RecipeModel? {
+        return storage.getRecipe(by: id)
     }
 }

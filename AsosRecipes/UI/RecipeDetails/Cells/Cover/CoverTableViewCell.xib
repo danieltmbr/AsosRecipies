@@ -26,14 +26,14 @@
                         </constraints>
                     </imageView>
                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="62p-re-BV0">
-                        <rect key="frame" x="0.0" y="283.5" width="320" height="35.5"/>
+                        <rect key="frame" x="0.0" y="281.5" width="320" height="37.5"/>
                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7gb-iW-7r5">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="35.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="37.5"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciF-Fw-Pls">
-                                    <rect key="frame" x="10" y="8" width="300" height="19.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <rect key="frame" x="10" y="8" width="300" height="21.5"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>

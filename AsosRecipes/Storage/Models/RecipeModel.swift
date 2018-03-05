@@ -9,6 +9,8 @@
 import RealmSwift
 
 final class RecipeModel: Object {
+    /** Unique identifier of the recipe */
+    @objc dynamic var id: String = UUID().uuidString
     /** Title of the recipe */
     @objc dynamic var title: String = ""
     /** Cover image url */
@@ -21,4 +23,8 @@ final class RecipeModel: Object {
     let ingredients = List<IngredientModel>()
     /** Steps of the recipe */
     let steps = List<StepModel>()
+
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }

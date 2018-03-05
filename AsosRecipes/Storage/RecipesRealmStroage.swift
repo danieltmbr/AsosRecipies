@@ -6,24 +6,36 @@
 //  Copyright © 2018. danieltmbr. All rights reserved.
 //
 
+import Foundation
 import RealmSwift
 import RxRealm
 import RxSwift
 
+
 final class RecipesRealmStorage: RecipesStorage {
+
+    private let updateKey: String = "RecipesRealmStorage.UpdatedTime"
 
     // MARK: - Properties
 
     var updatedTime: TimeInterval {
-        return 5000
+        get {
+            // .double(for key: ) returns 0 if not exists -> No good
+            guard let updatedTime = UserDefaults.standard.value(forKey: updateKey) as? Double
+                else { return .greatestFiniteMagnitude }
+            return updatedTime
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: updateKey)
+            UserDefaults.standard.synchronize()
+        }
     }
 
     // MARK: - Public methods
 
     func getRecipes(title: String, difficulty: Difficulty, duration: Duration) -> Observable<[RecipeModel]> {
-
-        let realm = try! Realm()
         // TODO: error handling
+        let realm = try! Realm()
         let predicate = NSPredicate(
             format: """
                 title LIKE[c] %@ AND
@@ -31,21 +43,24 @@ final class RecipesRealmStorage: RecipesStorage {
                 steps.@sum.timer >= %d AND steps.@sum.timer < %d
             """,
             title+"*", difficulty.min, difficulty.max, duration.min, duration.max)
-
         let recipes = realm
             .objects(RecipeModel.self)
             .filter(predicate)
-
         return Observable
             .changeset(from: recipes)
             .map { Array($0.0) }
+    }
+
+    func getRecipe(by id: String) -> RecipeModel? {
+        // TODO: error handling
+        let realm = try! Realm()
+        return realm.object(ofType: RecipeModel.self, forPrimaryKey: id)
     }
 
     func overwrite(recipes: [Recipe]) {
         let realm = try! Realm()
         let recipeModels = recipes.map(mapRecipe)
         setRelativeDifficulties(for: recipeModels)
-
         do {
             try realm.write {
                 realm.deleteAll()
@@ -60,10 +75,8 @@ final class RecipesRealmStorage: RecipesStorage {
     // MARK: - Private methods
 
     private func setRelativeDifficulties(for recipes: [RecipeModel]) {
-
         var easiest: Double = .greatestFiniteMagnitude
         var hardest: Double = 0
-
         // Calculate absolute difficulties
         recipes.forEach {
             let stepsWeight = pow(Double($0.steps.count), 2)
@@ -73,7 +86,6 @@ final class RecipesRealmStorage: RecipesStorage {
             easiest = min(dif, easiest)
             hardest = max(dif, hardest)
         }
-
         // Normalise difficulties: 0 to 1
         let interval = hardest - easiest
         recipes.forEach {
@@ -158,7 +170,8 @@ private extension Duration {
         case .quick: return 10
         case .medium: return 20
         // TECHDEBT: - Find a better solution
-        default: return 1000 // Temporary: Int.max did not work with predicate...
+        // It's temporary, because Int.max did not work with predicate.
+        default: return 1000
         }
     }
 }
