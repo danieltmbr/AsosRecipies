@@ -79,7 +79,7 @@ final class RecipeDetailsViewController: UIViewController, URLSessionDelegate {
         super.viewDidLoad()
         setupTableView()
         titleLabel.text = viewModel.title
-        coverImageView.kf.setImage(with: viewModel.coverImageUrl)
+        coverImageView.kf.setImage(with: viewModel.coverImageUrl, placeholder: #imageLiteral(resourceName: "placeholder"))
     }
 
     override func viewDidDisappear(_ animated: Bool) {

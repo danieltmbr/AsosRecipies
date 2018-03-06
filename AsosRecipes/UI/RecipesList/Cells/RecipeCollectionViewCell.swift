@@ -48,7 +48,7 @@ final class RecipeCollectionViewCell: UICollectionViewCell, ExternalCell {
 
     func render(model: RecipeCellViewModel) {
         let processor = ResizingImageProcessor(referenceSize: bounds.size, mode: .aspectFill)
-        coverImageView.kf.setImage(with: model.coverImageUrl, options: [.processor(processor)])
+        coverImageView.kf.setImage(with: model.coverImageUrl, placeholder: #imageLiteral(resourceName: "placeholder"), options: [.processor(processor)])
         titleLabel.text = model.title
         ingredientsLabel.text = model.ingredientsCount
         durationLabel.text = model.duration

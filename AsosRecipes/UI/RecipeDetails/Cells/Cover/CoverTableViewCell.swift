@@ -21,7 +21,7 @@ final class CoverTableViewCell: UITableViewCell, ExternalCell {
 extension CoverTableViewCell: ModelRendererCell {
 
     func render(model: RecipeViewModel) {
-        coverImageView.kf.setImage(with: model.coverImageUrl)
+        coverImageView.kf.setImage(with: model.coverImageUrl, placeholder: #imageLiteral(resourceName: "placeholder"))
         titleLabel.text = model.title
     }
 }
