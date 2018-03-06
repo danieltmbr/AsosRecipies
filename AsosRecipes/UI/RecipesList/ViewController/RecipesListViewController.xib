@@ -83,12 +83,21 @@
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEu-x1-Lqe" userLabel="Empty screen">
                     <rect key="frame" x="0.0" y="40" width="375" height="563"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFB-Rc-kTn">
-                            <rect key="frame" x="100" y="124" width="175.5" height="33.5"/>
-                            <string key="text">There is no recipe to cook.
-Tap to fetch again.</string>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                            <nil key="textColor"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFB-Rc-kTn">
+                            <rect key="frame" x="50" y="111" width="275" height="61.5"/>
+                            <attributedString key="attributedText">
+                                <fragment>
+                                    <string key="content">There is no recipe to cook.
+Try to modify your search &amp; filter conditions.
+Or just tap to fetch again.</string>
+                                    <attributes>
+                                        <color key="NSBackgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="14" name="SFUIText-Medium"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.25" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -109,7 +118,7 @@ Tap to fetch again.</string>
                 <constraint firstItem="6EJ-0d-fTH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="4Vr-kM-D1t"/>
                 <constraint firstItem="dEu-x1-Lqe" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="CK7-Vx-dAc"/>
                 <constraint firstAttribute="trailing" secondItem="6EJ-0d-fTH" secondAttribute="trailing" id="CNg-dd-HdK"/>
-                <constraint firstItem="Gev-u5-rX0" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="G3m-tA-q8E"/>
+                <constraint firstItem="Gev-u5-rX0" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="G3m-tA-q8E"/>
                 <constraint firstItem="Gev-u5-rX0" firstAttribute="top" secondItem="6EJ-0d-fTH" secondAttribute="bottom" id="KKw-2x-og4"/>
                 <constraint firstItem="Gev-u5-rX0" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="MXx-7U-3zn"/>
                 <constraint firstItem="Gev-u5-rX0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NPg-Qm-ZzW"/>
