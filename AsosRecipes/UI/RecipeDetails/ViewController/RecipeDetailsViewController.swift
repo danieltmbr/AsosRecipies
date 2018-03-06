@@ -73,9 +73,7 @@ final class RecipeDetailsViewController: UIViewController, URLSessionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-//        navigationController?.navigationBar.isTranslucent = true
-//        navigationController?.navigationBar.barTintColor = .clear
-//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        self.title = viewModel.title
     }
 
     override func viewDidDisappear(_ animated: Bool) {

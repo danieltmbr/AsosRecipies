@@ -6,6 +6,15 @@
   Copyright © 2018. danieltmbr. All rights reserved.
 */
 
+// MARK: - Errors
+
+"We're really sorry, but" = "We're really sorry, but";
+"Never mind" = "Never mind";
+"error.db.open" = "The database got a little stubborn. We could not handle it.";
+"error.db.write" = "The database is illiterate. Couldn't write data.";
+"error.db.find" = "This is not the recipe you're looking for.";
+"error.network.recipes" = "The recipies have been lost in space.";
+
 // MARK: - Difficulties
 
 "difficulty.rookie" = "Easy";

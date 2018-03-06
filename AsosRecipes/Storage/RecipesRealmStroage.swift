@@ -34,8 +34,9 @@ final class RecipesRealmStorage: RecipesStorage {
     // MARK: - Public methods
 
     func getRecipes(title: String, difficulty: Difficulty, duration: Duration) -> Observable<[RecipeModel]> {
-        // TODO: error handling
-        let realm = try! Realm()
+        guard let realm = try? Realm()
+            else { return Observable.error(DatabaseError.cannotOpenDatabase) }
+
         let predicate = NSPredicate(
             format: """
                 title LIKE[c] %@ AND
@@ -43,32 +44,48 @@ final class RecipesRealmStorage: RecipesStorage {
                 steps.@sum.timer >= %d AND steps.@sum.timer < %d
             """,
             title+"*", difficulty.min, difficulty.max, duration.min, duration.max)
+
         let recipes = realm
             .objects(RecipeModel.self)
             .filter(predicate)
+
         return Observable
             .changeset(from: recipes)
             .map { Array($0.0) }
     }
 
-    func getRecipe(by id: String) -> RecipeModel? {
-        // TODO: error handling
-        let realm = try! Realm()
-        return realm.object(ofType: RecipeModel.self, forPrimaryKey: id)
+    func getRecipe(by id: String) throws -> RecipeModel {
+        guard let realm = try? Realm()
+            else { throw DatabaseError.cannotOpenDatabase }
+        guard let recipe = realm.object(ofType: RecipeModel.self, forPrimaryKey: id)
+            else { throw DatabaseError.cannotFindRecipe }
+        return recipe
     }
 
-    func overwrite(recipes: [Recipe]) {
-        let realm = try! Realm()
-        let recipeModels = recipes.map(mapRecipe)
-        setRelativeDifficulties(for: recipeModels)
-        do {
-            try realm.write {
-                realm.deleteAll()
-                realm.add(recipeModels)
+    func overwrite(recipes: [Recipe]) -> Observable<Void> {
+        return Observable.create{ [weak self] observer in
+            guard let `self` = self else {
+                observer.onCompleted()
+                return Disposables.create()
             }
-        } catch let error {
-            // TODO: Error handling
-            print(error)
+            guard let realm = try? Realm() else {
+                observer.onError(DatabaseError.cannotOpenDatabase)
+                return Disposables.create()
+            }
+
+            let recipeModels = recipes.map(self.mapRecipe)
+            self.setRelativeDifficulties(for: recipeModels)
+            do {
+                try realm.write {
+                    realm.deleteAll()
+                    realm.add(recipeModels)
+                    self.updatedTime = Date().timeIntervalSince1970
+                }
+                observer.onCompleted()
+            } catch let error {
+                observer.onError(DatabaseError.cannotWriteToDatabase(error))
+            }
+            return Disposables.create()
         }
     }
 

@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,6 +15,7 @@
                 <outlet property="collectionView" destination="Gev-u5-rX0" id="4ls-rO-dsN"/>
                 <outlet property="difficultyButton" destination="quP-2e-nJ9" id="0KJ-Ta-87R"/>
                 <outlet property="durationButton" destination="uQv-rk-zez" id="qXq-gw-umZ"/>
+                <outlet property="emptyIndicatorView" destination="dEu-x1-Lqe" id="OlX-Cv-93z"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,7 +24,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Gev-u5-rX0">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Gev-u5-rX0">
                     <rect key="frame" x="0.0" y="40" width="375" height="563"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9Uk-VY-izh">
@@ -78,20 +80,51 @@
                         <constraint firstAttribute="bottom" secondItem="J8Z-4l-q41" secondAttribute="bottom" id="vSi-Nr-9g3"/>
                     </constraints>
                 </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEu-x1-Lqe" userLabel="Empty screen">
+                    <rect key="frame" x="0.0" y="40" width="375" height="563"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFB-Rc-kTn">
+                            <rect key="frame" x="100" y="124" width="175.5" height="33.5"/>
+                            <string key="text">There is no recipe to cook.
+Tap to fetch again.</string>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstItem="RFB-Rc-kTn" firstAttribute="centerY" secondItem="dEu-x1-Lqe" secondAttribute="centerY" multiplier="0.5" id="cry-9d-snq"/>
+                        <constraint firstItem="RFB-Rc-kTn" firstAttribute="centerX" secondItem="dEu-x1-Lqe" secondAttribute="centerX" id="iyC-yW-9hg"/>
+                    </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="d9A-sr-hqW" appends="YES" id="mQb-NN-C6m"/>
+                    </connections>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="dEu-x1-Lqe" firstAttribute="top" secondItem="6EJ-0d-fTH" secondAttribute="bottom" id="3DF-pv-FIU"/>
                 <constraint firstItem="6EJ-0d-fTH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="4Vr-kM-D1t"/>
+                <constraint firstItem="dEu-x1-Lqe" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="CK7-Vx-dAc"/>
                 <constraint firstAttribute="trailing" secondItem="6EJ-0d-fTH" secondAttribute="trailing" id="CNg-dd-HdK"/>
                 <constraint firstItem="Gev-u5-rX0" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="G3m-tA-q8E"/>
                 <constraint firstItem="Gev-u5-rX0" firstAttribute="top" secondItem="6EJ-0d-fTH" secondAttribute="bottom" id="KKw-2x-og4"/>
                 <constraint firstItem="Gev-u5-rX0" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="MXx-7U-3zn"/>
                 <constraint firstItem="Gev-u5-rX0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NPg-Qm-ZzW"/>
+                <constraint firstItem="dEu-x1-Lqe" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Qua-WC-5j7"/>
                 <constraint firstItem="6EJ-0d-fTH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="frK-p9-KBk"/>
+                <constraint firstItem="dEu-x1-Lqe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="h0t-5c-qW0"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
+        <tapGestureRecognizer id="d9A-sr-hqW">
+            <connections>
+                <action selector="handleEmptyViewTap:" destination="-1" id="CON-Pz-V5w"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

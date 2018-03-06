@@ -7,7 +7,6 @@
 //
 
 import RxSwift
-import RxCocoa
 
 // MARK: -
 
@@ -17,9 +16,9 @@ protocol RecipesStorage {
     /** Returns the furrent filtered entities */
     func getRecipes(title: String, difficulty: Difficulty, duration: Duration) -> Observable<[RecipeModel]>
     /** Clears the current entities and saves the new ones */
-    func overwrite(recipes: [Recipe])
+    func overwrite(recipes: [Recipe]) -> Observable<Void>
     /** Returns a recipie by id if exists */
-    func getRecipe(by id: String) -> RecipeModel?
+    func getRecipe(by id: String) throws -> RecipeModel
 }
 
 // MARK: -
@@ -35,15 +34,15 @@ final class CachingRecipesProvider {
     /** Seconds of cache validity (Time to live) */
     private let cacheValidity: TimeInterval
     /** Server or database error */
-    private let _error = BehaviorRelay<Error?>(value: nil)
+    private let _error = BehaviorSubject<Error?>(value: nil)
     /** Server request is */
-    private let _isLoading = BehaviorRelay<Bool>(value: false)
+    private let _isLoading = BehaviorSubject<Bool>(value: false)
     /** Disposable subscription container */
     private var serviceBag = DisposeBag()
 
     // MARK: - Initialisation
 
-    init(storage: RecipesStorage, service: RecipesService, cacheValidity: TimeInterval = 3600) {
+    init(storage: RecipesStorage, service: RecipesService, cacheValidity: TimeInterval) {
         self.storage = storage
         self.service = service
         self.cacheValidity = cacheValidity
@@ -55,20 +54,26 @@ final class CachingRecipesProvider {
         // Unsubscribe from previous network requests
         serviceBag = DisposeBag()
         // Fetch from network
+        _isLoading.onNext(true)
         service.fetchRecipes()
             .asObservable()
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .utility))
-            .subscribe { [weak self] (event) in
-                guard let `self` = self else { return }
-                switch event {
-                case .next(let recipes):
-                    self.storage.overwrite(recipes: recipes)
-                    self._isLoading.accept(false)
-                case .error(let error):
-                    self._error.accept(error)
-                    self._isLoading.accept(false)
-                default: break
-                }
+            .catchError { [weak self] (error) -> Observable<[Recipe]> in
+                self?._error.onNext(NetworkError.cannotLoadRecipes(error))
+                return Observable.empty()
+            }
+            .flatMapLatest { [weak self] recipes -> Observable<Void> in
+                guard let `self` = self
+                    else { return Observable.empty() }
+                return self.storage
+                    .overwrite(recipes: recipes)
+                    .catchError { (error) -> Observable<Void> in
+                        self._error.onNext(error)
+                        return Observable.empty()
+                    }
+            }
+            .subscribe { [weak self] _ in
+                self?._isLoading.onNext(false)
             }
             .disposed(by: serviceBag)
     }
@@ -88,7 +93,9 @@ extension CachingRecipesProvider: RecipesProvider {
 
     func fetchRecipes(title: String, difficulty: Difficulty, duration: Duration) -> Observable<[RecipeModel]> {
         // If we're trying to work with outdated entities - refresh
-        if storage.updatedTime > cacheValidity {
+        let updatedDate = Date(timeIntervalSince1970: storage.updatedTime)
+        let difference = abs(Date().timeIntervalSince(updatedDate))
+        if difference > cacheValidity {
             loadRecipes(name: title, difficulty: difficulty, duration: duration)
         }
         // Display current recipes anyway
@@ -100,7 +107,20 @@ extension CachingRecipesProvider: RecipesProvider {
         return storage.getRecipes(title: title, difficulty: difficulty, duration: duration)
     }
 
-    func getRecipe(by id: String) -> RecipeModel? {
-        return storage.getRecipe(by: id)
+    func getRecipe(by id: String) -> Observable<RecipeModel> {
+        return Observable.create { [weak self] observer in
+            guard let `self` = self else {
+                observer.onCompleted()
+                return Disposables.create()
+            }
+            do {
+                let recipe = try self.storage.getRecipe(by: id)
+                observer.onNext(recipe)
+                observer.onCompleted()
+            } catch let error {
+                observer.onError(error)
+            }
+            return Disposables.create()
+        }
     }
 }

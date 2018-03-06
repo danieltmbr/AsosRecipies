@@ -8,6 +8,7 @@
 
 import RxSwift
 import Moya
+import Alamofire
 
 // MARK: -
 
@@ -25,7 +26,7 @@ final class RecipesServiceClient {
 
     // MARK: - Initialisation
 
-    init(provider: MoyaProvider<RecipesEndpoints> = MoyaProvider<RecipesEndpoints>()) {
+    init(provider: MoyaProvider<RecipesEndpoints>) {
         self.provider = provider
     }
 }
@@ -39,5 +40,33 @@ extension RecipesServiceClient: RecipesService {
             .request(.all)
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .utility))
             .map([Recipe].self)
+    }
+}
+
+// MARK: -
+
+extension RecipesServiceClient {
+
+    class func defaultManager() -> Manager {
+        let configuration = URLSessionConfiguration.default
+        configuration.httpAdditionalHeaders = Manager.defaultHTTPHeaders
+        configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
+        configuration.timeoutIntervalForRequest = 5
+
+        let manager = Manager(configuration: configuration)
+        manager.retrier = RetryManager(count: 1)
+        manager.startRequestsImmediately = false
+        return manager
+    }
+}
+
+// MARK: -
+
+private struct RetryManager: RequestRetrier {
+
+    let count: Int
+
+    func should(_ manager: SessionManager, retry request: Request, with error: Error, completion: @escaping RequestRetryCompletion) {
+        completion(request.retryCount <= count, 1)
     }
 }
