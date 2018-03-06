@@ -30,6 +30,9 @@
 		E230261E204CC259006408F2 /* RecipeDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E230261D204CC259006408F2 /* RecipeDetailsCoordinator.swift */; };
 		E2302620204CD636006408F2 /* RecipeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E230261F204CD636006408F2 /* RecipeDetailsModel.swift */; };
 		E2302622204CDD44006408F2 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2302621204CDD44006408F2 /* IntExtensions.swift */; };
+		E2302624204DE5E7006408F2 /* UIEdgeInsetsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2302623204DE5E7006408F2 /* UIEdgeInsetsExtensions.swift */; };
+		E2302626204DE9AF006408F2 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2302625204DE9AF006408F2 /* ErrorPresenter.swift */; };
+		E2302628204DEC5B006408F2 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2302627204DEC5B006408F2 /* NetworkError.swift */; };
 		E28215A62047626E00839798 /* RecipesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28215A42047626E00839798 /* RecipesListViewController.swift */; };
 		E28215A72047626E00839798 /* RecipesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E28215A52047626E00839798 /* RecipesListViewController.xib */; };
 		E28215AA2047628700839798 /* RecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28215A82047628700839798 /* RecipeDetailsViewController.swift */; };
@@ -95,6 +98,9 @@
 		E230261D204CC259006408F2 /* RecipeDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsCoordinator.swift; sourceTree = "<group>"; };
 		E230261F204CD636006408F2 /* RecipeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsModel.swift; sourceTree = "<group>"; };
 		E2302621204CDD44006408F2 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
+		E2302623204DE5E7006408F2 /* UIEdgeInsetsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetsExtensions.swift; sourceTree = "<group>"; };
+		E2302625204DE9AF006408F2 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
+		E2302627204DEC5B006408F2 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		E28215A42047626E00839798 /* RecipesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesListViewController.swift; sourceTree = "<group>"; };
 		E28215A52047626E00839798 /* RecipesListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipesListViewController.xib; sourceTree = "<group>"; };
 		E28215A82047628700839798 /* RecipeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +177,7 @@
 			children = (
 				E23025EA204B226A006408F2 /* StringExtensions.swift */,
 				E2302621204CDD44006408F2 /* IntExtensions.swift */,
+				E2302623204DE5E7006408F2 /* UIEdgeInsetsExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -205,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				E23025FD204BFC58006408F2 /* DatabaseError.swift */,
+				E2302627204DEC5B006408F2 /* NetworkError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -330,6 +338,7 @@
 				E28215AE2047634600839798 /* ExternalView.swift */,
 				E23025E0204AFF90006408F2 /* ModelRendererCell.swift */,
 				E23025F1204B4649006408F2 /* OptionsPresenter.swift */,
+				E2302625204DE9AF006408F2 /* ErrorPresenter.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -735,6 +744,9 @@
 				E2302622204CDD44006408F2 /* IntExtensions.swift in Sources */,
 				E2C1C405204A1A97003AA78C /* CoverTableViewCell.swift in Sources */,
 				E2302609204C01F0006408F2 /* StepModel.swift in Sources */,
+				E2302624204DE5E7006408F2 /* UIEdgeInsetsExtensions.swift in Sources */,
+				E2302628204DEC5B006408F2 /* NetworkError.swift in Sources */,
+				E2302626204DE9AF006408F2 /* ErrorPresenter.swift in Sources */,
 				E2302613204C1BD7006408F2 /* Difficulty.swift in Sources */,
 				E28215B42047640400839798 /* RecipeCollectionViewCell.swift in Sources */,
 				E28215BC2047649800839798 /* StepTableViewCell.swift in Sources */,
