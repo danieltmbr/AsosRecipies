@@ -51,7 +51,7 @@ extension RecipesServiceClient {
         let configuration = URLSessionConfiguration.default
         configuration.httpAdditionalHeaders = Manager.defaultHTTPHeaders
         configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
-        configuration.timeoutIntervalForRequest = 5
+        configuration.timeoutIntervalForRequest = 8
 
         let manager = Manager(configuration: configuration)
         manager.retrier = RetryManager(count: 1)

@@ -44,7 +44,7 @@ final class RecipesListCoordinator: Coordinator {
         let storage = RecipesRealmStorage()
         let serviceProvider = MoyaProvider<RecipesEndpoints>(manager: RecipesServiceClient.defaultManager())
         let service = RecipesServiceClient(provider: serviceProvider)
-        let dataProvider = CachingRecipesProvider(storage: storage, service: service, cacheValidity: 0)
+        let dataProvider = CachingRecipesProvider(storage: storage, service: service, cacheValidity: 3600)
         let viewModel = RecipeListModel(dataProvider: dataProvider, coordinator: self, difficulties: difficulties, durations: durations)
         let listViewController = RecipesListViewController(with: viewModel)
 

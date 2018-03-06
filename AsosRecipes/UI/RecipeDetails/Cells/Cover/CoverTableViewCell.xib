@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="319.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RJD-kp-ViD">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RJD-kp-ViD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="RJD-kp-ViD" secondAttribute="height" multiplier="1:1" id="r74-ky-25U"/>
@@ -39,13 +39,13 @@
                                 </label>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="ciF-Fw-Pls" secondAttribute="trailing" constant="10" id="ahW-Gb-p4m"/>
+                                <constraint firstItem="Zmo-Ud-pQR" firstAttribute="trailing" secondItem="ciF-Fw-Pls" secondAttribute="trailing" constant="10" id="ahW-Gb-p4m"/>
                                 <constraint firstAttribute="bottom" secondItem="ciF-Fw-Pls" secondAttribute="bottom" constant="8" id="mS9-MP-98L"/>
-                                <constraint firstItem="ciF-Fw-Pls" firstAttribute="leading" secondItem="7gb-iW-7r5" secondAttribute="leading" constant="10" id="sQB-th-SCu"/>
+                                <constraint firstItem="ciF-Fw-Pls" firstAttribute="leading" secondItem="Zmo-Ud-pQR" secondAttribute="leading" constant="10" id="sQB-th-SCu"/>
                                 <constraint firstItem="ciF-Fw-Pls" firstAttribute="top" secondItem="7gb-iW-7r5" secondAttribute="top" constant="8" id="zWO-9R-pOt"/>
                             </constraints>
+                            <viewLayoutGuide key="safeArea" id="Zmo-Ud-pQR"/>
                         </view>
-                        <viewLayoutGuide key="safeArea" id="xRG-Sg-otd"/>
                         <blurEffect style="extraLight"/>
                     </visualEffectView>
                 </subviews>
@@ -58,7 +58,6 @@
                     <constraint firstItem="RJD-kp-ViD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="KBH-Ji-K6R"/>
                     <constraint firstItem="62p-re-BV0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mPf-MR-dPH"/>
                 </constraints>
-                <viewLayoutGuide key="safeArea" id="Ihw-5m-g4y"/>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>

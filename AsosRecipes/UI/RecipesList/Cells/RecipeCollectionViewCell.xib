@@ -24,7 +24,7 @@
                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B5W-zf-9lF">
                         <rect key="frame" x="0.0" y="115.5" width="160" height="64.5"/>
                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="BWk-dI-V6X">
-                            <rect key="frame" x="0.0" y="0.0" width="160" height="65"/>
+                            <rect key="frame" x="0.0" y="0.0" width="160" height="64.5"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="eaQ-ct-efA">

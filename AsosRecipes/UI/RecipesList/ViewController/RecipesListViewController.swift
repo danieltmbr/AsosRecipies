@@ -114,7 +114,7 @@ final class RecipesListViewController: UIViewController, OptionsPresenter, Error
     // MARK: - IBActions
 
     @IBAction private func handleEmptyViewTap(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
+        searchBar.endEditing(true)
         viewModel.setRefresh.onNext(())
     }
     

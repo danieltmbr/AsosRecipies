@@ -62,6 +62,6 @@ private struct StepCellModel: StepCellViewModel {
 
     init(model: StepModel) {
         description = model.instruction
-        duration = model.timer.formattedDuration
+        duration = model.timer > 0 ? model.timer.formattedDuration : ""
     }
 }

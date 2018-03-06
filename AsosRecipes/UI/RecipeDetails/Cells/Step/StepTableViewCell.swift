@@ -33,5 +33,6 @@ extension StepTableViewCell: ModelRendererCell {
     func render(model: StepCellViewModel) {
         descriptionLabel.text = model.description
         durationLabel.text = model.duration
+        durationLabel.isHidden = model.duration.isEmpty
     }
 }
