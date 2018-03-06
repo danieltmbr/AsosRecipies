@@ -52,6 +52,14 @@ protocol RecipeListViewModel {
 // MARK: -
 
 private struct Constants {
+    /** Landscape row size */
+    var landscapeRowCount: CGFloat {
+        return UIDevice.current.userInterfaceIdiom == .pad ? 5 : 4
+    }
+    /** Portrait row size */
+    var portraitRowCount: CGFloat {
+        return UIDevice.current.userInterfaceIdiom == .pad ? 3 : 2
+    }
     /** Margins */
     let margins = UIEdgeInsets(top: 12, left: 8, bottom: 12, right: 8)
     /** Spacing between cells and rows */
@@ -96,11 +104,11 @@ final class RecipesListViewController: UIViewController, OptionsPresenter, Error
         self.viewModel = viewModel
         super.init(nibName: "RecipesListViewController", bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // MARK: - Lifecycle methods
 
     override func viewDidLoad() {
@@ -111,13 +119,18 @@ final class RecipesListViewController: UIViewController, OptionsPresenter, Error
         setupBindings()
     }
 
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        collectionView?.collectionViewLayout.invalidateLayout()
+    }
+
     // MARK: - IBActions
 
     @IBAction private func handleEmptyViewTap(_ sender: UITapGestureRecognizer) {
         searchBar.endEditing(true)
         viewModel.setRefresh.onNext(())
     }
-    
+
     // MARK: - Private methods
 
     private func setupNavigationBar() {
@@ -193,7 +206,7 @@ final class RecipesListViewController: UIViewController, OptionsPresenter, Error
             .bind(to: durationButton.rx.title(for: .normal))
             .disposed(by: disposeBag)
 
-        // Bind duration button tap 
+        // Bind duration button tap
         durationButton.rx.tap.asObservable()
             .flatMap { [unowned self] in
                 self.presentOptions(
@@ -243,7 +256,11 @@ extension RecipesListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (collectionView.bounds.width - constants.spacing - constants.margins.sumHorizontal)/2
+        let orientation = UIDevice.current.orientation
+        let rowSize: CGFloat = orientation == .portraitUpsideDown || orientation == .portrait
+            ? constants.portraitRowCount
+            : constants.landscapeRowCount
+        let width = (collectionView.bounds.width - (rowSize-1)*constants.spacing - constants.margins.sumHorizontal)/(rowSize)
         let height = width / constants.aspectRatio
         return CGSize(width: width, height: height)
     }

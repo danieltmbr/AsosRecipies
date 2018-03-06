@@ -28,7 +28,7 @@
                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="62p-re-BV0">
                         <rect key="frame" x="0.0" y="281.5" width="320" height="37.5"/>
                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7gb-iW-7r5">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="37.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="38"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciF-Fw-Pls">
@@ -45,6 +45,16 @@
                                 <constraint firstItem="ciF-Fw-Pls" firstAttribute="top" secondItem="7gb-iW-7r5" secondAttribute="top" constant="8" id="zWO-9R-pOt"/>
                             </constraints>
                             <viewLayoutGuide key="safeArea" id="Zmo-Ud-pQR"/>
+                            <variation key="default">
+                                <mask key="subviews">
+                                    <exclude reference="ciF-Fw-Pls"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <mask key="subviews">
+                                    <include reference="ciF-Fw-Pls"/>
+                                </mask>
+                            </variation>
                         </view>
                         <blurEffect style="extraLight"/>
                     </visualEffectView>
@@ -58,6 +68,18 @@
                     <constraint firstItem="RJD-kp-ViD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="KBH-Ji-K6R"/>
                     <constraint firstItem="62p-re-BV0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mPf-MR-dPH"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="subviews">
+                        <exclude reference="RJD-kp-ViD"/>
+                        <exclude reference="62p-re-BV0"/>
+                    </mask>
+                </variation>
+                <variation key="heightClass=regular-widthClass=compact">
+                    <mask key="subviews">
+                        <include reference="RJD-kp-ViD"/>
+                        <include reference="62p-re-BV0"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>

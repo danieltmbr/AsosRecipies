@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import Kingfisher
 
 // MARK: -
 
@@ -56,6 +57,10 @@ final class RecipeDetailsViewController: UIViewController, URLSessionDelegate {
     /** Details tableView */
     @IBOutlet weak private var tableView: UITableView!
 
+    @IBOutlet weak private var coverImageView: UIImageView!
+
+    @IBOutlet weak private var titleLabel: UILabel!
+
     // MARK: - Initialisation methods
 
     init(with viewModel: RecipeDetailsViewModel, delegate: DismissDelegate) {
@@ -73,7 +78,8 @@ final class RecipeDetailsViewController: UIViewController, URLSessionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-//        self.title = viewModel.title
+        titleLabel.text = viewModel.title
+        coverImageView.kf.setImage(with: viewModel.coverImageUrl)
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -137,6 +143,15 @@ extension RecipeDetailsViewController: UITableViewDataSource {
 // MARK: -
 
 extension RecipeDetailsViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let orientation = UIDevice.current.orientation
+        if indexPath.section == 0 && (orientation == .landscapeLeft || orientation == .landscapeRight) {
+            return 0
+        } else {
+            return UITableViewAutomaticDimension
+        }
+    }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return RecipeDetailSection(rawValue: section)?.height ?? 0
